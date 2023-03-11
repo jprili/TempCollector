@@ -10,6 +10,9 @@ uint32_t loopCounter = 0;
 int status = INT8_MIN;
 
 void setup() {
+  // add short delay to avoid printing twice
+  delay(1000);
+
   // serial setup
   Serial.begin(BAUD_RATE);
   Serial.print("Serial started with ");
@@ -35,17 +38,17 @@ void loop() {
   if (status == DHTLIB_OK) {
 
     if (runOnce) {
-      Serial.println("Point #,\tHumidity (%),\tTemperature: (degC)");
     }
     runOnce = 0;
     
     // collect humidity and temperature
     // round to 1 decimal
     Serial.print(loopCounter);
-    Serial.print(",\t");
+    Serial.print(" ");
     Serial.print(sensor.humidity, 1);
-    Serial.print(",\t");
+    Serial.print(" ");
     Serial.println(sensor.temperature, 1);
+
     loopCounter++;
   } else {
     Serial.println(status);
