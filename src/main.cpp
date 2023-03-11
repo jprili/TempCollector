@@ -35,7 +35,7 @@ void loop() {
     runOnce = 0;
     
     // collect humidity and temperature
-    // round to 1 digit
+    // round to 1 decimal
     Serial.print(sensor.humidity, 1);
     Serial.print(", \t");
     Serial.print(sensor.temperature, 1);
