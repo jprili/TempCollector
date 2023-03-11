@@ -6,6 +6,7 @@
 
 dht sensor;
 int status = 1; // placeholder status
+bool runOnce = 1;
 
 void setup() {
   // serial setup
@@ -23,13 +24,25 @@ void setup() {
     Serial.print(status);
     Serial.println(". Please check sensor connection.");
   }
-
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
   if (status == DHTLIB_OK) {
+    if (runOnce) {
+      Serial.println("Humidity (%), \t Temperature: (degC)");
+    }
+    runOnce = 0;
+    
+    // collect humidity and temperature
+    // round to 1 digit
     Serial.print(sensor.humidity, 1);
+    Serial.print(", \t");
     Serial.print(sensor.temperature, 1);
+    Serial.println(" ");
+  } else {
+    delay(10000);
   }
+
+  status = sensor.read11(DHT_PIN);
 }
