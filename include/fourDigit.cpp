@@ -8,23 +8,23 @@ fourDigit::fourDigit() {
 
 }
 
-void dispNum(int num) {
+void fourDigit::dispNum(int num) {
 
 }
 
-void dispNum(float num) {
+void fourDigit::dispNum(float num) {
 
 }
 
-void dispClr() {
-    
-}
-
-
-uint8_t numToBitMask(int num) {
+void fourDigit::dispClr() {
 
 }
 
-uint8_t numToBitMask(float num) {
+
+uint8_t fourDigit::numToBitmask(int num) {
+
+}
+
+uint8_t fourDigit::numToBitmask(float num) {
 
 }

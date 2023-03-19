@@ -2,23 +2,30 @@
  * "fourDigit":
  * mini-library for four digit,
  * seven segment displays.
- * 
- * (c) James Paolo Rili 2023
-*/
+ *
+ * (c) jprili 2023
+ */
 
 #pragma once
+
+#ifndef fourDigit_hpp
+#define fourDigit_hpp
+
+#if defined(ARDUINO)
 #include "Arduino.h"
+#endif
 
 class fourDigit {
-    public:
-        fourDigit();
+public:
+    fourDigit();
 
-        void dispNum(int   num);
-        void dispNum(float num);
+    void dispNum(int   num);
+    void dispNum(float num);
 
-        void dispClr();
-    private:
-        uint8_t numToBitmask(int   num);
-        uint8_t numToBitmask(float num);
+    void dispClr();
 
+private:
+    uint8_t numToBitmask(int   num);
+    uint8_t numToBitmask(float num);
 };
+#endif
