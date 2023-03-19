@@ -5,9 +5,9 @@
 #define BAUD_RATE 9600
 
 dht sensor;
-bool runOnce = 1;
+bool runOnce         = 1;
 uint32_t loopCounter = 0;
-int status = INT8_MIN;
+int status           = INT8_MIN;
 
 void setup() {
   // add short delay to avoid printing twice
